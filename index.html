@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Para você ❤️</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+        body {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    #ff91a8 0%,
+                    #ff6684 25%,
+                    #e82d5b 55%,
+                    #a90035 100%
+                );
+
+        }
+
+
+        /* =========================================
+           CONTEÚDO CENTRAL
+        ========================================= */
+
+        .container {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 100;
+
+            pointer-events: none;
+
+        }
+
+
+        .mensagem {
+
+            color: white;
+
+            font-size:
+                clamp(
+                    32px,
+                    9vw,
+                    65px
+                );
+
+            font-weight: 700;
+
+            text-align: center;
+
+            line-height: 1.2;
+
+            user-select: none;
+
+            text-shadow:
+
+                0 0 5px
+                rgba(255,255,255,0.9),
+
+                0 0 15px
+                rgba(255,255,255,0.8),
+
+                0 0 35px
+                rgba(255,80,120,0.9),
+
+                0 8px 25px
+                rgba(100,0,30,0.5);
+
+
+            /*
+             * PULSAÇÃO SUAVE
+             */
+
+            animation:
+                pulsarTexto
+                3.2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes pulsarTexto {
+
+            0% {
+
+                opacity: 0.45;
+
+                transform:
+                    scale(0.94);
+
+                text-shadow:
+
+                    0 0 5px
+                    rgba(255,255,255,0.4),
+
+                    0 0 15px
+                    rgba(255,255,255,0.3);
+
+            }
+
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.05);
+
+                text-shadow:
+
+                    0 0 8px
+                    rgba(255,255,255,1),
+
+                    0 0 25px
+                    rgba(255,255,255,0.9),
+
+                    0 0 50px
+                    rgba(255,100,150,1);
+
+            }
+
+
+            100% {
+
+                opacity: 0.45;
+
+                transform:
+                    scale(0.94);
+
+                text-shadow:
+
+                    0 0 5px
+                    rgba(255,255,255,0.4),
+
+                    0 0 15px
+                    rgba(255,255,255,0.3);
+
+            }
+
+        }
+
+
+        /* =========================================
+           ÁREA DOS CORAÇÕES
+        ========================================= */
+
+        #chuva {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 10;
+
+        }
+
+
+        /* =========================================
+           CORAÇÃO
+        ========================================= */
+
+        .coracao {
+
+            position: absolute;
+
+            top: -50px;
+
+            width: 24px;
+            height: 24px;
+
+            background: #ff174f;
+
+            transform:
+                rotate(-45deg);
+
+            opacity: 0;
+
+            filter:
+                drop-shadow(
+                    0 0 5px
+                    rgba(255,255,255,0.5)
+                );
+
+            animation:
+                queda linear
+                forwards;
+
+        }
+
+
+        /*
+         * As duas partes redondas do coração
+         */
+
+        .coracao::before,
+        .coracao::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 24px;
+            height: 24px;
+
+            background: inherit;
+
+            border-radius: 50%;
+
+        }
+
+
+        .coracao::before {
+
+            top: -12px;
+
+            left: 0;
+
+        }
+
+
+        .coracao::after {
+
+            left: 12px;
+
+            top: 0;
+
+        }
+
+
+        /* =========================================
+           CORES DOS CORAÇÕES
+        ========================================= */
+
+        .rosa {
+
+            background: #ff4f81;
+
+        }
+
+
+        .claro {
+
+            background: #ff8fab;
+
+        }
+
+
+        .vermelho {
+
+            background: #ff174f;
+
+        }
+
+
+        .vinho {
+
+            background: #d41445;
+
+        }
+
+
+        .branco {
+
+            background: #fff0f5;
+
+        }
+
+
+        /* =========================================
+           ANIMAÇÃO DA CHUVA
+        ========================================= */
+
+        @keyframes queda {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-60px)
+                    translateX(0)
+                    rotate(-45deg);
+
+            }
+
+
+            8% {
+
+                opacity: 0.95;
+
+            }
+
+
+            50% {
+
+                transform:
+                    translateY(55vh)
+                    translateX(35px)
+                    rotate(135deg);
+
+            }
+
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(115vh)
+                    translateX(-25px)
+                    rotate(315deg);
+
+            }
+
+        }
+
+
+        /* =========================================
+           BRILHOS PEQUENOS
+        ========================================= */
+
+        .brilho {
+
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            box-shadow:
+                0 0 8px white,
+                0 0 15px white;
+
+            opacity: 0.7;
+
+            animation:
+                brilho
+                2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes brilho {
+
+            0%,
+            100% {
+
+                opacity: 0.15;
+
+                transform:
+                    scale(0.5);
+
+            }
+
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.5);
+
+            }
+
+        }
+
+
+        /* =========================================
+           CELULAR
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .mensagem {
+
+                font-size: 11vw;
+
+                max-width: 90%;
+
+            }
+
+
+            .coracao {
+
+                width: 19px;
+                height: 19px;
+
+            }
+
+
+            .coracao::before,
+            .coracao::after {
+
+                width: 19px;
+                height: 19px;
+
+            }
+
+
+            .coracao::before {
+
+                top: -9.5px;
+
+            }
+
+
+            .coracao::after {
+
+                left: 9.5px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         CHUVA
+    ====================================== -->
+
+    <div id="chuva"></div>
+
+
+    <!-- =====================================
+         TEXTO
+    ====================================== -->
+
+    <main class="container">
+
+        <div class="mensagem">
+
+            ❤️Você me deve uma foda gostosa❤️
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+
+        /* =========================================
+           CONFIGURAÇÃO
+        ========================================= */
+
+        const chuva =
+            document.getElementById("chuva");
+
+
+        const cores = [
+
+            "vermelho",
+            "rosa",
+            "claro",
+            "vinho",
+            "branco"
+
+        ];
+
+
+        /* =========================================
+           CRIA UM CORAÇÃO
+        ========================================= */
+
+        function criarCoracao(
+            posicaoInicial = false
+        ) {
+
+            const coracao =
+                document.createElement("div");
+
+
+            coracao.classList.add(
+                "coracao"
+            );
+
+
+            /*
+             * Cor aleatória
+             */
+
+            const cor =
+                cores[
+                    Math.floor(
+                        Math.random()
+                        * cores.length
+                    )
+                ];
+
+
+            coracao.classList.add(cor);
+
+
+            /*
+             * Posição horizontal
+             */
+
+            coracao.style.left =
+                Math.random() * 100 + "%";
+
+
+            /*
+             * Tamanho
+             */
+
+            const tamanho =
+                Math.random() * 20 + 15;
+
+
+            coracao.style.width =
+                tamanho + "px";
+
+
+            coracao.style.height =
+                tamanho + "px";
+
+
+            /*
+             * Ajusta os pseudo-elementos
+             */
+
+            coracao.style.setProperty(
+                "--tamanho",
+                tamanho + "px"
+            );
+
+
+            /*
+             * Velocidade
+             */
+
+            const duracao =
+                Math.random() * 4 + 5;
+
+
+            coracao.style.animationDuration =
+                duracao + "s";
+
+
+            /*
+             * Pequena variação lateral
+             */
+
+            const deslocamento =
+                Math.random() * 100 - 50;
+
+
+            coracao.style.setProperty(
+                "--deslocamento",
+                deslocamento + "px"
+            );
+
+
+            /*
+             * Se for o preenchimento inicial,
+             * espalha os corações pela tela.
+             */
+
+            if (posicaoInicial) {
+
+                coracao.style.top =
+                    Math.random() * 100 + "vh";
+
+                coracao.style.animationDelay =
+                    "-" +
+                    Math.random() *
+                    duracao +
+                    "s";
+
+            }
+
+
+            chuva.appendChild(
+                coracao
+            );
+
+
+            /*
+             * Remove depois
+             */
+
+            setTimeout(() => {
+
+                coracao.remove();
+
+            }, (duracao + 1) * 1000);
+
+        }
+
+
+        /* =========================================
+           PREENCHE A TELA INICIALMENTE
+        ========================================= */
+
+        for (
+            let i = 0;
+            i < 45;
+            i++
+        ) {
+
+            criarCoracao(true);
+
+        }
+
+
+        /* =========================================
+           CHUVA CONTÍNUA
+        ========================================= */
+
+        setInterval(() => {
+
+            /*
+             * Cria 2 corações por vez.
+             *
+             * Isso deixa a chuva realmente
+             * parecida com uma cascata.
+             */
+
+            criarCoracao();
+
+            criarCoracao();
+
+        }, 180);
+
+
+        /* =========================================
+           BRILHOS
+        ========================================= */
+
+        function criarBrilho() {
+
+            const brilho =
+                document.createElement("div");
+
+
+            brilho.classList.add(
+                "brilho"
+            );
+
+
+            brilho.style.left =
+                Math.random() * 100 + "%";
+
+
+            brilho.style.top =
+                Math.random() * 100 + "%";
+
+
+            brilho.style.animationDelay =
+                Math.random() * 2 + "s";
+
+
+            chuva.appendChild(
+                brilho
+            );
+
+
+            setTimeout(() => {
+
+                brilho.remove();
+
+            }, 4000);
+
+        }
+
+
+        /*
+         * Cria alguns brilhos
+         */
+
+        for (
+            let i = 0;
+            i < 20;
+            i++
+        ) {
+
+            criarBrilho();
+
+        }
+
+
+        setInterval(() => {
+
+            criarBrilho();
+
+        }, 500);
+
+
+    </script>
+
+
+</body>
+
+</html>
